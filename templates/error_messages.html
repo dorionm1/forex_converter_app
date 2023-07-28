@@ -1,0 +1,7 @@
+{% extends 'home_page.html' %}
+
+{% block errors %}
+<p>{% for msg in get_flashed_messages() %}
+    <p id="error">{{ msg }}</p>
+  {% endfor %}</p>
+{% endblock %}

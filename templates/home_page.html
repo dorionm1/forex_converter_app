@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="static/styles.css">
+    <title>Converter Home Page</title>
+  </head>
+  <body>
+    <h1>Currency Converter</h1>
+    <div class="converter-container">
+    <p>{% for msg in get_flashed_messages() %}
+        <p id="error">{{ msg }}</p>
+      {% endfor %}</p>
+      <div>
+    <form action="/conversion" method="post">
+      <label for="currcode_from">Converting from:</label>
+      <input type="text" id="currcode_from" name="currcode_from" placeholder="Currency Code" onfocus="this.placeholder=''"onblur="this.placeholder = 'Currency Code'" /><br /><br />
+      <label for="currcode_to">Converting to:</label>
+      <input type="text" id="currcode_to" name="currcode_to" placeholder="Currency Code" onfocus="this.placeholder=''" onblur="this.placeholder = 'Currency Code'"/><br /><br />
+      <label for="amount">Amount:</label>
+      <input type="text" id="amount" name="amount" placeholder="Amount" onfocus="this.placeholder=''"onblur="this.placeholder = 'Amount'" /><br /><br />
+      <button type="submit">Convert!</button>
+    </form>
+    </div>
+    <p>{% block conversion %}{% endblock %}</p>
+    </div>
+  </body>
+</html>

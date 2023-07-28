@@ -1,0 +1,9 @@
+{% extends 'home_page.html' %} {% block conversion %}
+<p id="conversion">
+  {{from_curr_sym}}{{amount}} ({{currfrom}}) is equal to
+  {{to_curr_sym}}{{roundedconv}} ({{currto}})
+</p>
+<form action="/">
+  <button type="submit">Clear Value</button>
+</form>
+{% endblock %}
