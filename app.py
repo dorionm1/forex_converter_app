@@ -32,16 +32,15 @@ def conversion():
         flash(
             f"Not a valid Code: {currto} Please visit https://www.iban.com/currency-codes for a full list of Currency Codes"
         )
-        flash(f"Not a valid Amount: {amount}")
         return redirect("/")
     if from_is_valid_cc == None:
-        flash(f"Not a valid Code: {currfrom}")
+        flash(f"Not a valid Code: {currfrom} Please visit https://www.iban.com/currency-codes for a full list of Currency Codes")
         return redirect("/")
     if to_is_valid_cc == None:
-        flash(f"Not a valid Code: {currto}")
+        flash(f"Not a valid Code: {currto} Please visit https://www.iban.com/currency-codes for a full list of Currency Codes")
         return redirect("/")
     else:
-        conversion = c.convert(currfrom, currto, Decimal(f'{amount}'))
+        conversion = c.convert(currfrom, currto, Decimal(amount))
         roundedconv = round(conversion, 2)
 
         return render_template(
