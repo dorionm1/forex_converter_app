@@ -9,12 +9,6 @@ app.config["SECRET_KEY"] = "key"
 debug = DebugToolbarExtension(app)
 app.config["DEBUG_TB_INTERCEPT_REDIRECTS"] = False
 
-def isfloat(num):
-    try:
-        float(num)
-        return True
-    except ValueError:
-        return False
 @app.route("/")
 def home_page():
     return render_template("home_page.html")
